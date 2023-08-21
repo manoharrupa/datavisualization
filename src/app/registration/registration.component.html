@@ -1,0 +1,130 @@
+<div class="card">
+    <h4 class="card-header">User-Registration</h4>
+    <div class="card-body">
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-12 col-md-6">
+        <label for="firstName">First Name</label> 
+        <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && d['firstName'].errors && d['firstName'].touched }" />
+        <div *ngIf="submitted && d['firstName'].errors  && d['firstName'].touched" class="invalid-feedback">
+            <div *ngIf="d['firstName'].errors?.['required']">First Name is required</div>
+            <div *ngIf="d['firstName'].errors?.['pattern']">Only Alaphbets required</div>
+
+        </div>
+    </div>
+    <!-- <div class=" form-group "> -->
+        <div class="col-12 col-md-6">
+        <label for="lastName"> Last Name</label>
+        <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && d['lastName'].errors && d['lastName'].touched }" />
+        <div *ngIf="submitted && d['lastName'].errors && d['lastName'].touched" class="invalid-feedback">
+            <div *ngIf="d['lastName'].errors?.['required']">Last Name is required</div>
+            <div *ngIf="d['lastName'].errors?.['pattern']">Only Alaphbets required</div>
+        </div>
+    </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+        <div class="col-12 col-md-6">
+        <label for="email">Email</label>
+        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && d['email'].errors && d['email'].touched }" />
+        <div *ngIf="submitted && d['email'].errors && d['email'].touched" class="invalid-feedback">
+            <div *ngIf="d['email'].errors?.['required']">Email is required</div>
+            <div *ngIf="d['email'].errors?.['email']">E</div>
+        </div>
+    </div>
+    <!-- <div class="form-group"> -->
+        <div class="col-12 col-md-6">
+        <label for="dob">DOB</label>
+        <input type="date" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && d['dob'].errors && d['dob'].touched}" [max]= "maxDate()" />
+        <div *ngIf="submitted && d['dob'].errors && d['dob'].touched" class="invalid-feedback">
+            <div *ngIf="d['dob'].errors?.['required']">DOB is required</div>
+        </div>
+    </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-12 col-md-6">
+        <label for="gender">Gender</label>
+        <select formControlName="gender"class="form-control" [ngClass]="{ 'is-invalid': submitted && d['gender'].errors && d['gender'].touched }">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Others</option>
+          </select>        
+          <div *ngIf="submitted && d['gender'].errors && d['gender'].touched" class="invalid-feedback">
+            <div *ngIf="d['gender'].errors?.['required']">gender is required</div>
+        </div>
+    </div>
+    <!-- <div class="form-group"> -->
+        <div class="col-12 col-md-6">
+        <label for="AadharNumber">AadharNumber</label>
+        <input type="text" formControlName="aadharNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && d['aadharNumber'].errors && d['aadharNumber'].touched }" />
+        <div *ngIf="submitted && d['aadharNumber'].errors && d['aadharNumber'].touched" class="invalid-feedback">
+            <div *ngIf="d['aadharNumber'].errors?.['required']">AadharNumber is required</div>
+            <div *ngIf="d['aadharNumber'].errors?.['pattern']">12digits number required</div>
+        </div>
+    </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-12 col-md-6">
+        <label for="countryCode">CountryCode</label>
+        <select formControlName="countryCode"class="form-control" [ngClass]="{ 'is-invalid': submitted && d['countryCode'].errors && d['countryCode'].touched }">
+            <option *ngFor="let country of countryCodes" [value]="country.code">{{ country.name }} ({{ country.code }})</option>
+          </select>        
+          <div *ngIf="submitted && d['countryCode'].errors && d['countryCode'].touched" class="invalid-feedback">
+            <div *ngIf="d['countryCode'].errors?.['required']">countryCode is required</div>
+        </div>
+    </div>
+    <!-- <div class="form-group"> -->
+        <div class="col-12 col-md-6">
+        <label for="Mobile">Mobile</label>
+        <input type="text" formControlName="mobileNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && d['mobileNumber'].errors && d['mobileNumber'].touched }" />
+        <div *ngIf="submitted && d['mobileNumber'].errors && d['mobileNumber'].touched" class="invalid-feedback">
+            <div *ngIf="d['mobileNumber'].errors?.['required']">mobileNumber is required</div>
+            <div *ngIf="d['mobileNumber'].errors?.['pattern']">10 digits number required</div>
+        </div>
+    </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-12 col-md-6">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && d['password'].errors && d['password'].touched }" />
+        <div *ngIf="submitted && d['password'].errors && d['password'].touched" class="invalid-feedback">
+            <div *ngIf="d['password'].errors?.['required']">Password is required</div>
+            <div *ngIf="d['password'].errors?.['uppercase']">Password must contain at least one uppercase letter. </div>
+            <div *ngIf="d['password'].errors?.['lowercase']">Password must contain at least one lowercase letter.</div>
+            <div *ngIf="d['password'].errors?.['digit']">Password must contain at least one digit.</div>
+            <div *ngIf="d['password'].errors?.['specialcase']">Password must contain at least one SpecialCharacter </div>
+            <div *ngIf="d['password'].errors?.['minlength']">Password must contain at least eight digits</div>
+            
+        </div>
+    </div>
+    <!-- <div class="form-group"> -->
+        <div class="col-12 col-md-6">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && d['confirmPassword'].errors && d['confirmPassword'].touched }" />
+        <div *ngIf="submitted && d['confirmPassword'].errors && d['confirmPassword'].touched" class="invalid-feedback">
+            <div *ngIf="d['confirmPassword'].errors?.['required']">confirmPassword is required</div>
+            <div *ngIf="d['confirmPassword'].errors?.['mismatch']">Passwords do not Matched.</div>
+
+        </div>
+    </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button  class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Register
+        </button>
+        <a routerLink="../login" class="btn btn-link">Login</a>
+    </div>
+</form>
+</div>
+</div>
+<!-- //[disabled]="!registrationForm.valid" -->

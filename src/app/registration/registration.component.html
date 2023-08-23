@@ -60,11 +60,11 @@
     </div>
     <!-- <div class="form-group"> -->
         <div class="col-12 col-md-6">
-        <label for="AadharNumber">AadharNumber</label>
-        <input type="text" formControlName="aadharNumber" class="form-control" [ngClass]="{ 'is-invalid': d['aadharNumber'].errors && d['aadharNumber'].touched }" />
-        <div *ngIf="d['aadharNumber'].errors && d['aadharNumber'].touched" class="invalid-feedback">
-            <div *ngIf="d['aadharNumber'].errors?.['required']">Aadhar Number is required</div>
-            <div *ngIf="d['aadharNumber'].errors?.['pattern']">12 digits number required</div>
+        <label for="adharCard">adharCard</label>
+        <input type="text" formControlName="adharCard" class="form-control" [ngClass]="{ 'is-invalid': d['adharCard'].errors && d['adharCard'].touched }" />
+        <div *ngIf="d['adharCard'].errors && d['adharCard'].touched" class="invalid-feedback">
+            <div *ngIf="d['adharCard'].errors?.['required']">Aadhar Number is required</div>
+            <div *ngIf="d['adharCard'].errors?.['pattern']">12 digits number required</div>
         </div>
     </div>
         </div>
@@ -74,7 +74,7 @@
             <div class="col-12 col-md-6">
         <label for="countryCode">CountryCode</label>
         <select formControlName="countryCode"class="form-control" [ngClass]="{ 'is-invalid': d['countryCode'].errors && d['countryCode'].touched }">
-            <option *ngFor="let country of countryCodes" [value]="country.code">{{ country.name }} ({{ country.code }})</option>
+            <option *ngFor="let country of countryCode" [value]="country.code">{{ country.name }} ({{ country.code }})</option>
           </select>        
           <div *ngIf="d['countryCode'].errors && d['countryCode'].touched" class="invalid-feedback">
             <div *ngIf="d['countryCode'].errors?.['required']">country Code is required</div>
@@ -83,10 +83,10 @@
     <!-- <div class="form-group"> -->
         <div class="col-12 col-md-6">
         <label for="Mobile">Mobile</label>
-        <input type="text" formControlName="mobileNumber" class="form-control" [ngClass]="{ 'is-invalid': d['mobileNumber'].errors && d['mobileNumber'].touched }" />
-        <div *ngIf="d['mobileNumber'].errors && d['mobileNumber'].touched" class="invalid-feedback">
-            <div *ngIf="d['mobileNumber'].errors?.['required']">mobile Number is required</div>
-            <div *ngIf="d['mobileNumber'].errors?.['pattern']">10 digits number required</div>
+        <input type="text" formControlName="contactNo" class="form-control" [ngClass]="{ 'is-invalid': d['contactNo'].errors && d['contactNo'].touched }" />
+        <div *ngIf="d['contactNo'].errors && d['contactNo'].touched" class="invalid-feedback">
+            <div *ngIf="d['contactNo'].errors?.['required']">mobile Number is required</div>
+            <div *ngIf="d['contactNo'].errors?.['pattern']">10 digits number required</div>
         </div>
     </div>
         </div>
@@ -124,14 +124,20 @@
             Register
         </button>
     </div>
-    <div><button  class="btn btn-danger" (click)="Oncancel()" type="button">
+    <div class="mr-5"><button  class="btn btn-danger " (click)="Oncancel()" type="button">
         <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
         Cancel
     </button>
 </div>
-    <!-- <div>
-        <a routerLink="../login" class="btn btn-link">Back to Login</a></div> -->
+        
+    </div>  
+    <div class="login-btn">
+        <p class="p-1">already register ?</p>
+        <button  class="btn btn-primary btn-height" (click)="OnLogin()" type="button">
+            Login
+         </button>
     </div>
+
 </form>
 </div>
 </div>

@@ -1,0 +1,11 @@
+.d-flex{
+    gap:30px !important;
+  }
+  .btn-height {
+    height: 0.5%;
+  }
+  .login-btn{
+    display: flex;
+    justify-content: left;
+    gap:15px;
+  }

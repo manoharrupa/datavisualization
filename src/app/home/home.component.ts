@@ -7,9 +7,9 @@ import { UserServicesService } from '../services/user-services.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  user: string;
+  // user: string;
 
     constructor(private accountService: UserServicesService) {
-        this.user = this.accountService.userValue;
+        // this.user = this.accountService.userValue;
     }
 }

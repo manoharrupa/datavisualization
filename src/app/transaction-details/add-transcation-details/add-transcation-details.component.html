@@ -1,0 +1,126 @@
+<p-dialog
+  header="{{ modalType }} Product"
+  [(visible)]="displayAddEditModal"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="closeModal()"
+>
+  <form [formGroup]="transactionForm" class="transaction-form">
+    <div class="field">
+      <label class="block" for="txn_id">Transaction-id</label>
+      <input type="text" pInputText id="txn_id" formControlName="txn_id" />
+      <small
+        class="p-error block"
+        *ngIf="
+          transactionForm.controls['txn_id'].invalid &&
+          transactionForm.controls['txn_id'].dirty
+        "
+        >Field is required</small
+      >
+    </div>
+    <div class="field">
+        <label class="block" for="amount">amount</label>
+        <input type="number" pInputText id="amount" formControlName="amount" />
+        <small
+          class="p-error block"
+          *ngIf="
+            transactionForm.controls['amount'].invalid &&
+            transactionForm.controls['amount'].dirty
+          "
+          >Field is required</small
+        >
+      </div>
+      <div class="field">
+        <label class="block"for="bank">bank</label>
+        <input type="text" pInputText id="bank" formControlName="bank" />
+      </div>
+      <div class="field">
+        <label class="block" for="card_type">card_type</label>
+        <input type="text" pInputText id="card_type" formControlName="card_type" />
+        <small
+          class="p-error block"
+          *ngIf="
+            transactionForm.controls['card_type'].invalid &&
+            transactionForm.controls['card_type'].dirty
+          "
+          >Field is required</small
+        >
+      </div>
+  <div class="field">
+        <label class="block" for="city">city</label>
+        <input type="text" pInputText id="city" formControlName="city" />
+        <small
+          class="p-error block"
+          *ngIf="
+            transactionForm.controls['city'].invalid &&
+            transactionForm.controls['city'].dirty
+          "
+          >Field is required</small
+        >
+      </div>
+      <div class="field">
+        <label class="block" for="exp_type">exp_type</label>
+        <input type="text" pInputText id="exp_type" formControlName="exp_type" />
+        <small
+          class="p-error block"
+          *ngIf="
+            transactionForm.controls['exp_type'].invalid &&
+            transactionForm.controls['exp_type'].dirty
+          "
+          >Field is required</small
+        >
+      </div>
+      <div class="field">
+        <label class="block" for="gender">gender</label>
+        <input type="text" pInputText id="gender" formControlName="gender" />
+        <small
+          class="p-error block"
+          *ngIf="
+            transactionForm.controls['gender'].invalid &&
+            transactionForm.controls['gender'].dirty
+          "
+          >Field is required</small
+        >
+      </div>
+      <div class="field">
+        <label class="block" for="txn_date">txn_date</label>
+        <input type="text" pInputText id="txn_date" formControlName="txn_date" />
+        <small
+          class="p-error block"
+          *ngIf="
+            transactionForm.controls['txn_date'].invalid &&
+            transactionForm.controls['txn_date'].dirty
+          "
+          >Field is required</small
+        >
+      </div>
+      <div class="field">
+        <label class="block" for="txn_status">txn_status</label>
+        <input type="text" pInputText id="txn_status" formControlName="txn_status" />
+        <small
+          class="p-error block"
+          *ngIf="
+            transactionForm.controls['txn_status'].invalid &&
+            transactionForm.controls['txn_status'].dirty
+          "
+          >Field is required</small
+        >
+      </div>
+    </form>
+  
+  <ng-template pTemplate="footer">
+      <p-button
+        (click)="closeModal()"
+        label="Cancel"
+        styleClass="p-button-text"
+      ></p-button>
+  
+      <p-button
+        (click)="addEditProduct()"
+        label="{{ modalType }}"
+        [disabled]="transactionForm.invalid"
+      ></p-button>
+    </ng-template>
+  </p-dialog>

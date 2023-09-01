@@ -28,31 +28,19 @@ export class RegistrationComponent implements OnInit {
     private countryDataService: CountryDataService
   ) {
     this.countryCode = this.countryDataService.countryCodes;
-
+  
     this.registrationForm = this.fb.group(
       {
-        firstName: [
-          '',
-          [Validators.required, Validators.pattern(/^[A-Za-z]+$/)],
-        ],
-        lastName: [
-          '',
-          [Validators.required, Validators.pattern(/^[A-Za-z]+$/)],
-        ],
+        firstName: ['',[Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
+        lastName: ['',[Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
         email: ['', [Validators.required, Validators.email]],
         gender: ['', [Validators.required, this.validateGender]],
         dob: ['', Validators.required],
         adharCard: ['', [Validators.required, Validators.pattern(/^\d{12}$/)]],
         countryCode: ['', Validators.required],
         contactNo: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-        password: [
-          '',
-          [
-            Validators.required,
-            Validators.minLength(8),
-            this.passwordValidator(),
-          ],
-        ],
+        password: ['',[Validators.required,Validators.minLength(8),
+            this.passwordValidator()]],
         confirmPassword: ['', Validators.required],
       },
       {
@@ -114,13 +102,16 @@ export class RegistrationComponent implements OnInit {
     if (this.registrationForm.valid) {
       this.userservice
         .registerUser(this.registrationForm.value)
-        .subscribe((reponse) => {
+        .subscribe((response) => {
           this.toastr.success('Registration is Successfull');
           this.router.navigate(['login']);
+        }, error =>{
+          this.toastr.warning(error.error.errorMessage);
+          
         });
        
     } else {
-      this.toastr.warning('Registration Form is invalid');
+      this.toastr.error('Registration Form is invalid');
     }
   }
   passwordMatchValidator(group: FormGroup) {

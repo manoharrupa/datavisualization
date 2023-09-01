@@ -1,12 +1,87 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="">
-    <!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user"> -->
-
-    <div class="navbar-nav">
-        <!-- <a class="nav-item nav-link" routerLink="../Login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>                 -->
-    </div>
-</nav>
-<div class="p-4">
-    <div class="container">
-        <h1>Hi!</h1>
-    </div>
+<!-- <div>
+    <nav class="border border-light me-1">
+        <span class="header">
+            Card Transactions Analysis
+        </span>
+        <span class="logoutBtn">
+            <i class="bi bi-power"></i> 
+        </span>
+    </nav>
+    <nav class="navbar navbar-light bg-primary ">
+    </nav>
+ </div> -->
+<!-- <div class="container-fluid">
+    <nav class="navbar navbar-expand-md border border-light mb-3">
+        <span class="navbar-brand header">
+            Card Transactions Analysis
+        </span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <i class="bi bi-list"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <button class="nav-link logoutBtn">
+                        <i class="bi bi-power"></i> Logout
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <nav class="navbar navbar-light bg-primary">
+    </nav>
+</div> --> 
+<div class="head">
+    Card Transactions Analysis
+    <button class="logout">
+        <i class="bi bi-power " style="color: white"></i> 
+    </button>
 </div>
+<div>
+    <!-- <nav class='navbar navbar-expand navbar-dark bg-primary'>
+        <ul class='nav nav-pills'>          
+          <li><a class='nav-link' routerLinkActive='active'[routerLink]="['/home']"> <i class="bi bi-house-door"></i>Dashboard</a></li>
+          <li><a class='nav-link' routerLinkActive='active'[routerLink]="['/login']"> <i class="bi bi-person-vcard"></i> Card wise</a></li>
+          <li><a class='nav-link' routerLinkActive='active'[routerLink]="['/home']"> <i class="bi bi-universal-access"></i> Gender Wise</a></li>
+          <li><a class='nav-link' routerLinkActive='active'[routerLink]="['/login']"> <i class="bi bi-house-door"></i>Sales Wise</a></li>
+          <li><a class='nav-link' routerLinkActive='active'[routerLink]="['/home']"> <i class="bi bi-bank2"></i> Institution Wise</a></li>
+          <li><a class='nav-link' routerLinkActive='active'[routerLink]="['/home']"> <i class="bi bi-bank2"></i> Add Transactions Details</a></li>
+
+        </ul>
+    </nav> -->
+    <!-- navbar.component.html -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/home"><i class="bi bi-house-door"></i>Dashboard</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/login"><i class="bi bi-person-vcard"></i> Card wise</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/home"><i class="bi bi-universal-access"></i> Gender Wise</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/home"><i class="bi bi-0-circle"></i>Sales Wise</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/home"><i class="bi bi-bank2"></i> Institution Wise</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/details"><i class="bi bi-bank2"></i> Add Transactions Details</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>   
+    </div>
+    <div class='container'>
+        <router-outlet></router-outlet>
+    <div>

@@ -33,6 +33,6 @@ export class LoginComponent {
         }
      this.toastr.success("login successfull");   
 this.userService.save(this.loginForm.get('userName')?.value);
-this.router.navigate(['home']);
+this.router.navigate(['']);
   }
 }

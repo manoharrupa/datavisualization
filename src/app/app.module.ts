@@ -16,7 +16,9 @@ import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { DialogModule } from 'primeng/dialog';
-import { AddTranscationDetailsComponent } from './transaction-details/add-transcation-details/add-transcation-details.component';
+import { CommonModule } from '@angular/common';
+import { FilterPipe } from './filter.pipe';
+import { AddeditTransactionComponent } from './transaction-details/addedit-transaction/addedit-transaction.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,9 @@ import { AddTranscationDetailsComponent } from './transaction-details/add-transc
     TransactionDetailsComponent,
     AppHeaderComponent,
     AppLayoutComponent,
-    AddTranscationDetailsComponent,
+    TransactionDetailsComponent,
+    FilterPipe,
+    AddeditTransactionComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,7 @@ import { AddTranscationDetailsComponent } from './transaction-details/add-transc
     TableModule,
     DropdownModule,
     DialogModule,
-  
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

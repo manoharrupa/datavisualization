@@ -1,0 +1,121 @@
+<p-dialog
+  header="Edit Product"
+  [(visible)]="displayAddEditModal"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  (onHide)="closeModal()"
+>
+  <form [formGroup]="transactionForm" class="transaction-form">
+    <div class="flex-modal" >
+      <label for="txnId" class="flex-item">Transaction-id</label>
+      <label type="number" class="form-control flex-item-input"  pInputText id="txnId" formControlName="txnId" >{{selectedProduct?.txnId}}</label>
+    </div>
+    <div class="flex-modal">
+      <label class="flex-item" for="amount">amount</label>
+      <input type="number" class="form-control flex-item-input" pInputText id="amount" formControlName="amount" />
+      <small
+        class="p-error block"
+        *ngIf="
+          transactionForm.controls['amount'].invalid &&
+          transactionForm.controls['amount'].dirty
+        "
+        >Field is required</small
+      >
+    </div>
+    <div class="flex-modal">
+      <label class="block" for="gender" class="flex-item">gender</label>
+      <p-dropdown placeholder="select a gender" [editable]="true" formControlName="gender" [options]="genders" class="flex-item-input"></p-dropdown>
+      <small
+        class="p-error block"
+        *ngIf="
+          transactionForm.controls['gender'].invalid &&
+          transactionForm.controls['gender'].dirty
+        "
+        >Field is required</small
+      >
+    </div>
+      <div class="flex-modal">
+        <label class="block"for="bank" class="flex-item">bank</label>
+        <input type="text" class="form-control flex-item-input" pInputText id="bank" formControlName="bank"  />
+      </div>
+      <div class="flex-modal">
+        <label class="block" for="cardType" class="flex-item">cardType</label>
+        <input type="text" class="form-control flex-item-input" pInputText id="cardType" formControlName="cardType"  />
+        <small
+          class="p-error block"
+          *ngIf="
+            transactionForm.controls['cardType'].invalid &&
+            transactionForm.controls['cardType'].dirty
+          "
+          >Field is required</small
+        >
+      </div>
+      <div class="flex-modal" style="overflow-y: visible;">
+        <label class="block" for="status" class="flex-item">status</label>
+        <p-dropdown class="flex-item-input"  placeholder="select a status" [editable]="true" formControlName="status" [options]="status"></p-dropdown>
+        <small
+          class="p-error block"
+          *ngIf="
+            transactionForm.controls['status'].invalid &&
+            transactionForm.controls['status'].dirty
+          "
+          >Field is required</small
+        >
+      </div>
+  <div class="flex-modal">
+        <label class="block" for="city" class="flex-item">city</label>
+        <input type="text" class="form-control flex-item-input" pInputText id="city" formControlName="city" />
+        <small
+          class="p-error block"
+          *ngIf="
+            transactionForm.controls['city'].invalid &&
+            transactionForm.controls['city'].dirty
+          "
+          >Field is required</small
+        >
+      </div>
+      <div class="flex-modal">
+        <label class="block" for="expType" class="flex-item">expType</label>
+        <input type="text" class="form-control flex-item-input"  pInputText id="expType" formControlName="expType" />
+        <small
+          class="p-error block"
+          *ngIf="
+            transactionForm.controls['expType'].invalid &&
+            transactionForm.controls['expType'].dirty
+          "
+          >Field is required</small
+        >
+      </div>
+      
+      <!-- <div class="flex-modal">
+        <label class="block" for="txnTime" class="flex-item">txn_date</label>
+        <input  type="text" class="form-control flex-item-input" pInputText id="txnTime" formControlName="txnTime"/>
+        <small
+          class="p-error block"
+          *ngIf="
+            transactionForm.controls['txnTime'].invalid &&
+            transactionForm.controls['txnTime'].dirty
+          "
+          >Field is required</small
+        >
+      </div> -->
+    </form>
+  
+  <ng-template pTemplate="footer" style="z-index: 0;">
+      <p-button
+        (click)="closeModal()"
+        label="Cancel"
+        styleClass="p-button-text"
+      ></p-button>
+      <p-button *ngIf="modalType === 'Edit'"
+        (click)="addEditProduct()"
+        [disabled]="transactionForm.invalid"
+      >Update</p-button>
+      <p-button *ngIf="modalType === 'Add'"
+        (click)="addNewProduct()"
+        [disabled]="transactionForm.invalid"
+      > Add Product</p-button>
+    </ng-template>
+  </p-dialog>

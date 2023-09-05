@@ -1,9 +1,10 @@
-<div class="flex justify-content-between">
-    <h2>Products</h2>
-    <p-button label="Add Product" (click)="showAddModal()"></p-button>
+<div class="flex justify-content-between mb-2">
+    <input style="width: 80%;height: 40px; margin-top: 2rem;  background-color: lightgray;" placeholder="search" [(ngModel)]="searchFilter">
+    <p-button class="ml-3" label="Add Transaction details"  (click)="showAddModal()"></p-button>
   </div>
-    <p-table [value]="products1" [paginator]="true" [rows]="5"  >
+    <p-table [value]="transactions | filter:filterProperties: searchFilter" [paginator]="true" [rows]="5"  >
         <ng-template pTemplate="header">
+
             <tr>
                 <th>Txn_id</th>
                 <th>Amount</th>
@@ -14,40 +15,36 @@
                 <th>Gender</th>
                 <th>Txn_date</th>
                 <th>Txn_status</th>
+                <th>Actions</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
             <tr >
-                <td>{{product.txn_id}}</td>
+                <td>{{product.txnId}}</td>
                 <td>{{product.amount}}</td>
-                <td>{{product.amount}} </td>
-                <td>{{product.card_type}}</td>
+                <td>{{product.bank}} </td>
+                <td>{{product.cardType}}</td>
                 <td>{{product.city}}</td>
-                <td>{{product.exp_type}}</td>
+                <td>{{product.expType}}</td>
                 <td>{{product.gender}}</td>
-                <td>{{product.txn_date}}</td>
-                <td>{{product.txn_status}}</td>
+                <td>{{product.txnTime | date:'yyyy-MM-dd'}}</td>
+                <td>{{product.status}}</td>
                 <td>
-                    <div class="flex align-items-center justify-content-center gap-2">
-                        <button  pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil"
-                            (click)="showEditModal(product)" class="p-button-rounded p-button-primary"></button>
-                        <!-- <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check"
-                            (click)="onRowEditSave(product)"
-                            class="p-button-rounded p-button-text p-button-success mr-2"></button>
-                        <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"
-                            (click)="onRowEditCancel(product, ri)"
-                            class="p-button-rounded p-button-text p-button-danger"></button> -->
+                    <div class="flex align-items-center justify-content-center gap-2 mr-2">
+                        <button  pButton pRipple type="button"  icon="pi pi-pencil"
+                            (click)="showEditModal(product.txnId)" class="p-button-rounded p-button-primary mr-2"></button>
+                     
                         <button  pButton icon="pi pi-trash" class="p-button-rounded p-button-danger"
-                            (click)="deleteProduct(product)"></button>
-                        
+                            (click)="deleteProduct(product.txnId)"></button>
                     </div>
                 </td>
             </tr>
         </ng-template>
     </p-table>
-    <app-add-transcation-details
+    <app-addedit-transaction
   [displayAddEditModal]="displayAddEditModal"
   [selectedProduct]="selectedProduct"
   (clickClose)="hideAddModal($event)"
   (clickAddEdit)="saveorUpdateProductList($event)"
-></app-add-transcation-details>
+></app-addedit-transaction>
+

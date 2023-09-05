@@ -1,11 +1,16 @@
-export interface TransactionDetails{
-    txn_id:number,
-    amount:number,
-    bank:string,
-    card_type:string,
-    city:string,
-    exp_type:string,
-    gender:string,
-    txn_date:Date,
-    txn_status:string
+export class TransactionDetails{
+    userId:number=0;
+    txnId:number = 0;
+    amount:number =0;
+    bank:string = '';
+    cardType:string ='';
+    city:string = '';
+    expType:string= '';
+    gender:string = '';
+    txnTime:Date= new Date();
+    status:string = '';
+    updatedTime: Date = new Date();
+    constructor(){
+
+    }
 }

@@ -31,6 +31,7 @@ export class LoginComponent {
  if (this.loginForm.invalid) {
             return;
         }
+        sessionStorage.setItem('userId','9999');
      this.toastr.success("login successfull");   
 this.userService.save(this.loginForm.get('userName')?.value);
 this.router.navigate(['']);

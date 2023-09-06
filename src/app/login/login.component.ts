@@ -32,6 +32,7 @@ export class LoginComponent {
             return;
         }
         sessionStorage.setItem('userId','9999');
+        localStorage.setItem('user',this.loginForm.get('userName')?.value);
      this.toastr.success("login successfull");   
 this.userService.save(this.loginForm.get('userName')?.value);
 this.router.navigate(['']);

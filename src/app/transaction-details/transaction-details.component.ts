@@ -20,7 +20,6 @@ export class TransactionDetailsComponent implements OnInit, OnChanges {
     
   }
   ngOnChanges(changes: SimpleChanges): void {
-    this.transactions = this.transcationServiceService.getTransactionDetails();
   }
   onRowEditInit(product: TransactionDetails) {
     console.log(product);

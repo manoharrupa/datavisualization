@@ -8,12 +8,12 @@
   (onHide)="closeModal()"
 >
   <form [formGroup]="transactionForm" class="transaction-form">
-    <div class="flex-modal" >
-      <label for="txnId" class="flex-item">Transaction-id</label>
+    <!-- <div class="flex-modal" >
+      <label for="txnId" class="flex-item">Transaction-Id</label>
       <label type="number" class="form-control flex-item-input"  pInputText id="txnId" formControlName="txnId" >{{selectedProduct?.txnId}}</label>
-    </div>
+    </div> -->
     <div class="flex-modal">
-      <label class="flex-item" for="amount">amount</label>
+      <label class="flex-item" for="amount">Amount</label>
       <input type="number" class="form-control flex-item-input" pInputText id="amount" formControlName="amount" />
       <small
         class="p-error block"
@@ -25,7 +25,7 @@
       >
     </div>
     <div class="flex-modal">
-      <label class="block" for="gender" class="flex-item">gender</label>
+      <label class="block" for="gender" class="flex-item">Gender</label>
       <p-dropdown placeholder="select a gender" [editable]="true" formControlName="gender" [options]="genders" class="flex-item-input"></p-dropdown>
       <small
         class="p-error block"
@@ -37,11 +37,11 @@
       >
     </div>
       <div class="flex-modal">
-        <label class="block"for="bank" class="flex-item">bank</label>
+        <label class="block"for="bank" class="flex-item">Bank</label>
         <input type="text" class="form-control flex-item-input" pInputText id="bank" formControlName="bank"  />
       </div>
       <div class="flex-modal">
-        <label class="block" for="cardType" class="flex-item">cardType</label>
+        <label class="block" for="cardType" class="flex-item">CardType</label>
         <input type="text" class="form-control flex-item-input" pInputText id="cardType" formControlName="cardType"  />
         <small
           class="p-error block"
@@ -53,7 +53,7 @@
         >
       </div>
       <div class="flex-modal" style="overflow-y: visible;">
-        <label class="block" for="status" class="flex-item">status</label>
+        <label class="block" for="status" class="flex-item">Status</label>
         <p-dropdown class="flex-item-input"  placeholder="select a status" [editable]="true" formControlName="status" [options]="status"></p-dropdown>
         <small
           class="p-error block"
@@ -65,7 +65,7 @@
         >
       </div>
   <div class="flex-modal">
-        <label class="block" for="city" class="flex-item">city</label>
+        <label class="block" for="city" class="flex-item">City</label>
         <input type="text" class="form-control flex-item-input" pInputText id="city" formControlName="city" />
         <small
           class="p-error block"
@@ -77,7 +77,7 @@
         >
       </div>
       <div class="flex-modal">
-        <label class="block" for="expType" class="flex-item">expType</label>
+        <label class="block" for="expType" class="flex-item">Exp-Type</label>
         <input type="text" class="form-control flex-item-input"  pInputText id="expType" formControlName="expType" />
         <small
           class="p-error block"

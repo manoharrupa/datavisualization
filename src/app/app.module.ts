@@ -19,6 +19,7 @@ import { DialogModule } from 'primeng/dialog';
 import { CommonModule } from '@angular/common';
 import { FilterPipe } from './filter.pipe';
 import { AddeditTransactionComponent } from './transaction-details/addedit-transaction/addedit-transaction.component';
+import { Router ,RouterModule} from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,9 @@ import { AddeditTransactionComponent } from './transaction-details/addedit-trans
     TableModule,
     DropdownModule,
     DialogModule,
-    CommonModule
+    CommonModule,
+    RouterModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,7 +18,7 @@ export class AddeditTransactionComponent {
   transactionForm: FormGroup;
   userID = 0;
   genders=['M','F'];
-  status=['sucess','failure','un-known'];
+  status=['Success','Fail','In-Progress'];
   transactions:TransactionDetails[]=[];
   constructor(private fb: FormBuilder ,private transactionservice:TranscationServiceService, private toastr: ToastrService,) {this.selectedProduct = new TransactionDetails();
 
@@ -61,7 +61,7 @@ export class AddeditTransactionComponent {
       }
       this.transactions.push(updateTransaction);
       this.transactionservice.setTransactionDetails(this.transactions);
-      this.toastr.success('Product Updated SuccessfullY');
+      this.toastr.success('Product Updated Successfully');
     }, error =>{
       this.transactions = temptransactions;
       this.toastr.error('Product Update Failed');      

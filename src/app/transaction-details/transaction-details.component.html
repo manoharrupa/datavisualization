@@ -2,7 +2,7 @@
     <input style="width: 80%;height: 40px; margin-top: 2rem;  background-color: lightgray;" placeholder="search" [(ngModel)]="searchFilter">
     <p-button class="ml-3" label="Add Transaction details"  (click)="showAddModal()"></p-button>
   </div>
-    <p-table [value]="transactions | filter:filterProperties: searchFilter" [paginator]="true" [rows]="5"  >
+    <p-table [value]="transactions | filter:filterProperties: searchFilter" [paginator]="true" [rows]="10"  >
         <ng-template pTemplate="header">
 
             <tr>
@@ -15,7 +15,7 @@
                 <th>Gender</th>
                 <th>Txn_date</th>
                 <th>Txn_status</th>
-                <th>Actions</th>
+                <th>Action</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>

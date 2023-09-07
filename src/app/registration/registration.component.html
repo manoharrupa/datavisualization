@@ -14,7 +14,6 @@
 
         </div>
     </div>
-    <!-- <div class=" form-group "> -->
         <div class="col-12 col-md-6">
         <label for="lastName"> Last Name</label>
         <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': d['lastName'].errors && d['lastName'].touched }" />
@@ -35,7 +34,7 @@
             <div *ngIf="d['email'].errors?.['email']">Invalid email format.</div>
         </div>
     </div>
-    <!-- <div class="form-group"> -->
+   
         <div class="col-12 col-md-6">
         <label for="dob">DOB</label>
         <input type="date" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': d['dob'].errors && d['dob'].touched}" [max]= "maxDate()" />
@@ -59,7 +58,7 @@
             <div *ngIf="d['gender'].errors?.['required']">gender is required</div>
         </div>
     </div>
-    <!-- <div class="form-group"> -->
+   
         <div class="col-12 col-md-6">
         <label for="adharCard">Aadhaar Card</label>
         <input type="text" formControlName="adharCard" class="form-control" [ngClass]="{ 'is-invalid': d['adharCard'].errors && d['adharCard'].touched }" />
@@ -81,7 +80,7 @@
             <div *ngIf="d['countryCode'].errors?.['required']">country Code is required</div>
         </div>
     </div>
-    <!-- <div class="form-group"> -->
+   
         <div class="col-12 col-md-6">
         <label for="Mobile">Mobile</label>
         <input type="text" formControlName="contactNo" class="form-control" [ngClass]="{ 'is-invalid': d['contactNo'].errors && d['contactNo'].touched }" />
@@ -107,7 +106,7 @@
             
         </div>
     </div>
-    <!-- <div class="form-group"> -->
+   
         <div class="col-12 col-md-6">
         <label for="confirmPassword">Confirm Password</label>
         <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': d['confirmPassword'].errors && d['confirmPassword'].touched }" />

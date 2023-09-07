@@ -13,7 +13,7 @@ export class TransactionDetailsComponent implements OnInit, OnChanges {
   transactions: TransactionDetails[]=[];
 
   searchFilter: string = '';
-  filterProperties: string[] = ['bank', 'cardType', 'city', 'status', 'txnId', 'txnTime'];
+  filterProperties: string[] = ['bank', 'cardType', 'city', 'status', 'txnId', 'txnTime','Exp_type'];
  
   constructor(private fb: FormBuilder, private transcationServiceService : TranscationServiceService, private toastr: ToastrService
     ) {

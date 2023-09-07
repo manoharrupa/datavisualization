@@ -140,8 +140,5 @@ export class RegistrationComponent implements OnInit {
   }
   Oncancel() {
     this.registrationForm.reset();
-    // this.userservice.getUser(1000).subscribe(res=>{
-    //   console.log(res);
-    // })
   }
 }

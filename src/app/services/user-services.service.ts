@@ -15,11 +15,6 @@ export class UserServicesService {
     return this.http.post<any>(this.url, registration);
   }
 
-  // getUser(id: number){
-  //   let url = `http://localhost:8080/user/get/${id}`;
-  //   return this.http.get(url);
-  // }
-
   save(reg:any){
     return null;
   }
